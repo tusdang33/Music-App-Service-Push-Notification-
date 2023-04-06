@@ -100,23 +100,23 @@ class MusicFragment : Fragment() {
             parentFragmentManager.popBackStack()
         }
 
-        binding.btnNext.setOnClickListener {
-            music = if (music.id == Music.getList().size) {
-                Music.getList()[0]
-            } else {
-                Music.getList()[music.id]
-            }
-            requestService(music)
-        }
-
-        binding.btnPrevious.setOnClickListener {
-            music = if (music.id == 1) {
-                Music.getList()[Music.getList().size - 1]
-            } else {
-                Music.getList()[music.id - 2]
-            }
-            requestService(music)
-        }
+//        binding.btnNext.setOnClickListener {
+//            music = if (music.id == Music.getList().size) {
+//                Music.getList()[0]
+//            } else {
+//                Music.getList()[music.id]
+//            }
+//            requestService(music)
+//        }
+//
+//        binding.btnPrevious.setOnClickListener {
+//            music = if (music.id == 1) {
+//                Music.getList()[Music.getList().size - 1]
+//            } else {
+//                Music.getList()[music.id - 2]
+//            }
+//            requestService(music)
+//        }
     }
 
     private fun requestService(music: Music) {
