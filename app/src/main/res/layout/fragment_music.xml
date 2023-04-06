@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MusicFragment">
+
+    <ImageView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:background="@drawable/ic_music_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="30sp"
+        android:layout_height="30sp"
+        android:backgroundTint="@color/white"
+        android:background="@drawable/ic_baseline_arrow_back_ios_24"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"/>
+
+    <ImageView
+        android:id="@+id/imgAvatar"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:background="@drawable/ic_music_avt"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@id/header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Music Name"
+        android:layout_marginTop="50dp"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/imgAvatar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <SeekBar
+        android:id="@+id/sbMusic"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:progress="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header" />
+
+    <TextView
+        android:id="@+id/tvStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/sbMusic"
+        app:layout_constraintBottom_toTopOf="@id/sbMusic"
+        android:text="start"/>
+
+    <TextView
+        android:id="@+id/tvEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/sbMusic"
+        app:layout_constraintBottom_toTopOf="@id/sbMusic"
+        android:text="end"/>
+
+    <ImageButton
+        android:id="@+id/btnPrevious"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="@id/sbMusic"
+        app:layout_constraintTop_toBottomOf="@id/sbMusic"
+        android:background="@drawable/ic_baseline_skip_previous_24"/>
+
+    <ImageButton
+        android:id="@+id/btnNext"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="@id/sbMusic"
+        app:layout_constraintTop_toBottomOf="@id/sbMusic"
+        android:background="@drawable/ic_baseline_skip_next_24"/>
+
+    <ImageButton
+        android:id="@+id/btnPlay"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="@id/sbMusic"
+        app:layout_constraintEnd_toEndOf="@id/sbMusic"
+        app:layout_constraintTop_toBottomOf="@id/sbMusic"
+        android:background="@drawable/ic_baseline_pause_circle_24"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="64dp">
+
+    <ImageView
+        android:id="@+id/imgNoti"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="30dp"
+        android:background="@drawable/ic_baseline_music_note_24"
+        android:backgroundTint="@color/black" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true">
+
+        <ImageButton
+            android:id="@+id/btnNotiPlay"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/ic_baseline_pause_circle_24"
+            android:backgroundTint="@color/black" />
+
+        <ImageButton
+            android:id="@+id/btnNotiCancel"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_baseline_cancel_24"
+            android:backgroundTint="@color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tvMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/imgNoti"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/TextAppearance.Compat.Notification.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Name"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/author"
+            style="@style/TextAppearance.Compat.Notification.Info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Author"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</RelativeLayout>
