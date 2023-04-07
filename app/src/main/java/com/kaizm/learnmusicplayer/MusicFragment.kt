@@ -98,6 +98,7 @@ class MusicFragment : Fragment() {
 
         binding.btnBack.setOnClickListener {
             parentFragmentManager.popBackStack()
+            (activity as MainActivity).showFooter()
         }
 
 //        binding.btnNext.setOnClickListener {
@@ -143,7 +144,7 @@ class MusicFragment : Fragment() {
         binding.sbMusic.progress = 0
         binding.sbMusic.max = mediaPlayer.duration
         binding.tvStart.text = String.format("%d:%02d", 0, 0)
-
+        binding.imgAvatar.setImageBitmap(music.img)
         binding.tvEnd.text = timeFormat(mediaPlayer.duration / 1000)
     }
 
@@ -155,9 +156,7 @@ class MusicFragment : Fragment() {
 
     override fun onPause() {
         super.onPause()
-        (activity as MainActivity).showFooter()
         lifecycleScope.cancel()
         handle.removeCallbacks(runnable)
     }
-
 }

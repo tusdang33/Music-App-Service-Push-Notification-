@@ -95,6 +95,11 @@ class MyService : Service() {
                 )
                 setImageViewResource(R.id.btnNotiPlay, R.drawable.ic_baseline_play_circle_24)
             }
+
+            setOnClickPendingIntent(
+                R.id.btnNotiCancel,
+                getPendingIntent(this@MyService, MUSIC_STOP)
+            )
         }
 
         val pendingIntent =
@@ -137,7 +142,7 @@ class MyService : Service() {
             MUSIC_RESUME -> musicResume()
             MUSIC_PAUSE -> musicPause()
         }
-        sendStatusToActivity()
+
     }
 
     private fun sendStatusToActivity(){
@@ -154,6 +159,7 @@ class MyService : Service() {
         if (mediaPlayer.isPlaying) {
             mediaPlayer.pause()
             pushNotification()
+            sendStatusToActivity()
         }
     }
 
@@ -161,19 +167,24 @@ class MyService : Service() {
     private fun musicResume() {
         mediaPlayer.start()
         pushNotification()
+        sendStatusToActivity()
     }
 
     private fun musicStop() {
         if (mediaPlayer.isPlaying) {
             mediaPlayer.stop()
             mediaPlayer.release()
-            stopSelf()
+            val intent = Intent("action_to_main").apply {
+                putExtras(Bundle().apply {
+                    putBoolean("stop", true)
+                })
+            }
+            LocalBroadcastManager.getInstance(this,).sendBroadcast(intent)
         }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        mediaPlayer.stop()
         mediaPlayer.release()
     }
 }

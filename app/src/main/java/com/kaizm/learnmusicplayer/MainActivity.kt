@@ -54,6 +54,11 @@ class MainActivity : AppCompatActivity() {
                         getDrawable(R.drawable.ic_baseline_play_circle_24)
                 }
             }
+            intent?.extras?.getBoolean("stop")?.let {
+                if (it) {
+                    cancelService()
+                }
+            }
         }
     }
 
@@ -127,14 +132,15 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnFooterCancel.setOnClickListener {
             cancelService()
-            hideFooter()
         }
     }
 
     fun cancelService() {
         if (isConnected) {
+            supportFragmentManager.beginTransaction().remove(musicFragment).commit()
             stopService(Intent(this, MyService::class.java))
             unbindService(connection)
+            hideFooter()
             isConnected = false
         }
     }
@@ -154,6 +160,7 @@ class MainActivity : AppCompatActivity() {
         stopService(Intent(this, MyService::class.java))
         LocalBroadcastManager.getInstance(this).unregisterReceiver(broadcastReceiver)
     }
+
 
     suspend fun getMedia() = myService?.mediaPlayer
     fun getConnection() = connection
